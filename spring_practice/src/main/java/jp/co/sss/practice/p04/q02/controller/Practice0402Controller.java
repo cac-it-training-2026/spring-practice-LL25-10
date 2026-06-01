@@ -22,14 +22,32 @@ public class Practice0402Controller {
 		return "practice04/02/numguess_input";
 	}
 
-	@RequestMapping("/numguess/hit")
-	public String endNumguess(Model model, HttpSession session) {
+	@RequestMapping("/numguess/judge")
+	public String endNumguess(HttpSession session, Integer inputNum) {
 		Integer hitNumber = (Integer) session.getAttribute("hitNumber");
-		String message = "当たり！正解は" + hitNumber + "です。";
+		if (hitNumber != null && hitNumber.equals(inputNum)) {
 
-		session.removeAttribute("hitNumber");
-		model.addAttribute("message", message);
-		return "practice04/02/numguess_end";
+			return "redirect:/numguess/hit";
+
+		} else {
+
+			return "practice04/02/numguess_judge";
+		}
 
 	}
+
+	@RequestMapping("/numguess/hit")
+	public String hit(Model model, HttpSession session) {
+
+		Integer hitNumber = (Integer) session.getAttribute("hitNumber");
+
+		String message = "当たりです！ 正解は" + hitNumber + "でした。";
+
+		model.addAttribute("message", message);
+
+		session.removeAttribute("hitNumber");
+
+		return "practice04/02/numguess_end";
+	}
+
 }
