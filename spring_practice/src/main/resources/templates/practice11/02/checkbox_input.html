@@ -11,7 +11,7 @@ Thymeleaf
 <p>
 <h4>入力値による表示の制御</h4>
 訪れたことのある都道府県名にチェックをいれて、送信ボタンをクリックしてください。
-<form th:action="@{'TODO'}" method="'TODO'">
+<form th:action="@{/checkbox/result}" method="post">
 都道府県名:
   <div>
     <input type="checkbox" name="destPrefs" value="北海道" />

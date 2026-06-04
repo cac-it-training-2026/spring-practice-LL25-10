@@ -11,19 +11,20 @@ Thyemeleaf
 <hr>
 <p>
 <h4>訪れた場所一覧</h4>
-<th:block th:unless="${'TODO'}">
+
+<th:block th:unless="${destPrefs == null}">
 	
-訪れた場所の数:<span th:text="${'TODO'}"></span><br>
+訪れた場所の数:<span th:text="${#arrays.length(destPrefs)}"></span><br>
 
 <table>
 <tr >
 <td>訪れた場所:</td>	
-<td th:each="name:${'TODO'}" th:text="${'TODO'}"></td>
+<td th:each="name:${destPrefs}" th:text="${name}"></td>
 </tr>
 </table>
-<p th:if="${'TODO'}">旅行好きですね。</p>
+<p th:if="${#arrays.length(destPrefs)>=7}">旅行好きですね。</p>
 </th:block>
-<th:block th:if="${'TODO'}">
+<th:block th:if="${destPrefs == null}">
 訪れた場所はありません。
 </th:block>
 

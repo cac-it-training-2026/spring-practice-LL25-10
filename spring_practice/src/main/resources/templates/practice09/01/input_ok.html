@@ -12,11 +12,11 @@
 <p>
 <h4>入力チェック 異常なし</h4>
 
-メッセージ:<span th:text="#{'TODO'}"></span><br>
+メッセージ:<span th:text="#{message.thankyou}"></span><br>
 <br>
-郵便番号:<span th:text="${'TODO'}"></span><br>
-都道府県名:<span th:text="${'TODO'}"></span><br>
-年齢:<span th:text="${'TODO'}"></span><br>
+郵便番号:<span th:text="${personalInfoForm.postalCode}"></span><br>
+都道府県名:<span th:text="${personalInfoForm.prefName}"></span><br>
+年齢:<span th:text="${personalInfoForm.age}"></span><br>
 
 </p>
 
